@@ -10,4 +10,36 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --color-gray-900: hsl(217deg, 100%, 98%);
+  --color-gray-500: hsl(217deg, 20%, 51%);
+  --color-gray-400: hsl(217deg, 35%, 45%);
+  --color-blue: hsl(212deg, 100%, 50%);
+  --color-black: hsl(217deg, 21%, 21%);
+  --color-white: hsl(0deg, 0%, 100%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+#root {
+  isolation: isolate;
 }
