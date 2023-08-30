@@ -1,5 +1,16 @@
+import Search from "./components/Search";
+
 function App() {
-  return <h1>Hello World!</h1>;
+  return (
+    <main>
+      <section>
+        <h1 className="text-[--color-black]">devfinder</h1>
+      </section>
+      <section>
+        <Search />
+      </section>
+    </main>
+  );
 }
 
 export default App;
