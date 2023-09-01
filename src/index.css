@@ -28,11 +28,22 @@
   --primary: hsl(var(--color-blue-50));
   --primary-hover: hsl(var(--color-blue-70));
   --error: hsl(var(--color-red-60));
+}
+
+:root.light {
   --primary-text: hsl(var(--color-black));
   --secondary-text: hsl(var(--color-gray-400));
   --secondary-text-transparent: hsl(var(--color-gray-400) / 0.75);
   --main-background: hsl(var(--color-gray-900));
   --content-background: hsl(var(--color-white));
+}
+
+:root.dark {
+  --primary-text: hsl(var(--color-white));
+  --secondary-text: hsl(var(--color-white));
+  --secondary-text-transparent: hsl(var(--color-white) / 0.5);
+  --main-background: hsl(220deg 40% 13%);
+  --content-background: hsl(222deg 41% 20%);
 }
 
 *,

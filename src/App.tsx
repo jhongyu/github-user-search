@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Content from "@/components/Content";
 import Search from "@/components/Search";
+import Theme from "@/components/Theme";
 import { getUserInfo } from "@/utils";
 
 export interface UserInfo {
@@ -35,8 +36,11 @@ function App() {
 
   return (
     <main>
-      <section>
-        <h1 className="text-[--color-black]">devfinder</h1>
+      <section className="flex items-center justify-between">
+        <h1 className="text-[26px] font-bold text-[--primary-text]">
+          devfinder
+        </h1>
+        <Theme />
       </section>
       <section className="mb-[24px] mt-[36px]">
         <Search setUserInfo={setUserInfo} />
