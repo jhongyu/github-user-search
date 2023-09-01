@@ -15,14 +15,24 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --color-gray-900: hsl(217deg, 100%, 98%);
-  --color-gray-500: hsl(217deg, 20%, 51%);
-  --color-gray-400: hsl(217deg, 35%, 45%);
-  --color-red: hsl(360, 92%, 62%);
-  --color-blue: hsl(212deg, 100%, 50%);
-  --color-blue-active: hsl(212deg, 100%, 70%);
-  --color-black: hsl(217deg, 21%, 21%);
-  --color-white: hsl(0deg, 0%, 100%);
+  --base-blue: 212deg 100%;
+  --base-red: 360deg 100%;
+  --color-blue-50: var(--base-blue) 50%;
+  --color-blue-70: var(--base-blue) 70%;
+  --color-red-60: var(--base-red) 60%;
+  --color-gray-400: 217deg 35% 45%;
+  --color-black: 217deg 20% 20%;
+  --color-white: 0deg 0% 100%;
+  --color-gray-900: 227deg 100% 98%;
+
+  --primary: hsl(var(--color-blue-50));
+  --primary-hover: hsl(var(--color-blue-70));
+  --error: hsl(var(--color-red-60));
+  --primary-text: hsl(var(--color-black));
+  --secondary-text: hsl(var(--color-gray-400));
+  --secondary-text-transparent: hsl(var(--color-gray-400) / 0.75);
+  --main-background: hsl(var(--color-gray-900));
+  --content-background: hsl(var(--color-white));
 }
 
 *,
@@ -37,7 +47,6 @@
 
 body {
   line-height: 1.5;
-  background-color: var(--color-gray-900);
 }
 
 input,
@@ -52,4 +61,5 @@ select {
   min-height: 100vh;
   display: grid;
   place-content: center;
+  background-color: var(--main-background);
 }
