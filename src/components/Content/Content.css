@@ -1,0 +1,101 @@
+@tailwind components;
+
+@layer components {
+  .user-info {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    grid-template-areas:
+      "avatar user-name"
+      "avatar user-name-link"
+      "avatar create-time"
+      "bio bio"
+      "repo-info repo-info"
+      "links links";
+    align-items: center;
+    column-gap: 16px;
+  }
+
+  .avatar {
+    grid-area: avatar;
+    align-self: flex-start;
+    aspect-ratio: 1;
+  }
+
+  .user-name {
+    grid-area: user-name;
+  }
+
+  .user-name-link {
+    grid-area: user-name-link;
+  }
+
+  .create-time {
+    grid-area: create-time;
+  }
+
+  .bio {
+    grid-area: bio;
+  }
+
+  .repo-info {
+    grid-area: repo-info;
+  }
+
+  .links {
+    grid-area: links;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "location"
+      "website"
+      "twitter"
+      "company";
+    gap: 16px;
+  }
+
+  .location {
+    grid-area: location;
+  }
+
+  .twitter {
+    grid-area: twitter;
+  }
+
+  .website {
+    grid-area: website;
+  }
+
+  .company {
+    grid-area: company;
+  }
+
+  @media (min-width: 768px) {
+    .user-info {
+      grid-template-columns: 120px 1fr;
+      column-gap: 32px;
+    }
+
+    .links {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-areas:
+        "location twitter"
+        "website company";
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .user-info {
+      grid-template-columns: 120px repeat(2, minmax(0, 1fr));
+      grid-template-areas:
+        "avatar user-name create-time"
+        "avatar user-name-link user-name-link"
+        "avatar bio bio"
+        "avatar repo-info repo-info"
+        "avatar links links";
+    }
+
+    .create-time {
+      justify-self: end;
+    }
+  }
+}

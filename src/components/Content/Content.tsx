@@ -3,6 +3,7 @@ import { ReactComponent as IconLocation } from "@/assets/icon-location.svg";
 import { ReactComponent as IconTwitter } from "@/assets/icon-twitter.svg";
 import { ReactComponent as IconWebsite } from "@/assets/icon-website.svg";
 import { ReactComponent as IconCompany } from "@/assets/icon-company.svg";
+import "./Content.css";
 
 interface ContentProps extends UserInfo {}
 
@@ -43,125 +44,110 @@ const Content = ({
     months[date.getMonth()]
   } ${date.getFullYear()}`;
 
+  const info = [
+    {
+      title: "Repos",
+      value: repos,
+    },
+    {
+      title: "Followers",
+      value: followers,
+    },
+    {
+      title: "Following",
+      value: following,
+    },
+  ];
+
   return (
-    <section className="flex gap-[36px] rounded-[15px] bg-[--content-background] p-[48px]">
-      <div className="h-[120px] w-[120px]">
+    <section className="user-info rounded-[15px] bg-[--content-background] p-[24px] md:p-[48px]">
+      <div className="avatar">
         <img
           className="h-full w-full rounded-full"
           src={avatarUrl}
           alt="user's avatar"
         />
       </div>
-      <div className="flex flex-1 flex-col gap-[32px]">
-        <div>
-          <div className="flex items-baseline justify-between">
-            <p className="text-[26px] font-bold text-[--primary-text]">
-              The {userName}
+      <p className="user-name font-bold text-[color:--primary-text] md:text-[length:26px]">
+        The {userName}
+      </p>
+      <a
+        className="user-name-link inline-block text-[length:13px] text-[color:--primary] md:text-[length:16px]"
+        href={userLink}
+        target="_blank"
+      >
+        @{slicedUserName}
+      </a>
+      <p className="create-time text-[length:13px] text-[color:--secondary-text] md:text-[length:16px]">
+        Joined {time}
+      </p>
+      <div
+        className={`bio text-[length:13px] text-[color:--secondary-text] md:text-[length:16px] ${
+          !bio && "opacity-75"
+        } mt-[20px]`}
+      >
+        {bio || "This profile has no bio"}
+      </div>
+      <div className="repo-info mt-[32px] flex h-[85px] justify-between rounded-[10px] bg-[--main-background] px-[32px] py-[16px]">
+        {info.map(({ title, value }) => (
+          <div className="flex flex-col justify-center gap-[8px]" key={title}>
+            <p className="text-[length:11px] text-[color:--secondary-text] md:text-[length:13px]">
+              {title}
             </p>
-            <p className="text-[--secondary-text]">Joined {time}</p>
+            <p className="font-bold text-[color:--primary-text] md:text-[length:22px]">
+              {value}
+            </p>
           </div>
-          <a
-            className="inline-block text-[--primary]"
-            href={userLink}
-            target="_blank"
-          >
-            @{slicedUserName}
-          </a>
-          <div
-            className={`${
-              bio
-                ? "text-[--secondary-text]"
-                : "text-[--secondary-text-transparent]"
-            } mt-[20px]`}
-          >
-            {bio || "This profile has no bio"}
+        ))}
+      </div>
+      <div className="links mt-[32px] text-[length:13px] text-[--secondary-text] md:text-[length:16px]">
+        <div
+          className={`location flex gap-[16px] ${!location && "opacity-50"}`}
+        >
+          <div className="h-[20px] w-[20px]">
+            <IconLocation />
           </div>
+          <p>{location || "Not Available"}</p>
         </div>
-        <div className="flex h-[85px] gap-[100px] rounded-[10px] bg-[--main-background] px-[32px] py-[16px] text-[--13px] text-[--secondary-text]">
-          <div>
-            <p>Repos</p>
-            <p className="text-[22px] font-bold text-[--primary-text]">
-              {repos}
-            </p>
+        <div
+          className={`twitter flex gap-[16px] ${
+            !twitterUsername && "opacity-50"
+          }`}
+        >
+          <div className="h-[20px] w-[20px]">
+            <IconTwitter />
           </div>
-          <div>
-            <p>Followers</p>
-            <p className="text-[22px] font-bold text-[--primary-text]">
-              {followers}
-            </p>
-          </div>
-          <div>
-            <p>Following</p>
-            <p className="text-[22px] font-bold text-[--primary-text]">
-              {following}
-            </p>
-          </div>
+          {twitterUsername ? (
+            <a href={`https://twitter.com/${twitterUsername}`} target="_blank">
+              {twitterUsername}
+            </a>
+          ) : (
+            <p>Not Available</p>
+          )}
         </div>
-        <div className="grid grid-cols-2 grid-rows-2 gap-[16px] text-[--secondary-text]">
-          <div
-            className={`col-start-1 col-end-2 row-start-1 row-end-2 flex gap-[16px] ${
-              !location && "text-[--secondary-text-transparent]"
-            }`}
-          >
-            <div className="h-[20px] w-[20px]">
-              <IconLocation />
-            </div>
-            <p>{location || "Not Available"}</p>
+        <div className={`website flex gap-[16px] ${!blog && "opacity-50"}`}>
+          <div className="h-[20px] w-[20px]">
+            <IconWebsite />
           </div>
-          <div
-            className={`col-start-2 col-end-3 row-start-1 row-end-2 flex gap-[16px] ${
-              !twitterUsername && "text-[--secondary-text-transparent]"
-            }`}
-          >
-            <div className="h-[20px] w-[20px]">
-              <IconTwitter />
-            </div>
-            {twitterUsername ? (
-              <a
-                href={`https://twitter.com/${twitterUsername}`}
-                target="_blank"
-              >
-                {twitterUsername}
-              </a>
-            ) : (
-              <p>Not Available</p>
-            )}
+          {blog ? (
+            <a href={blog} target="_blank" className="hover:underline">
+              {blog}
+            </a>
+          ) : (
+            <p>Not Available</p>
+          )}
+        </div>
+        <div className={`company flex gap-[16px] ${!company && "opacity-50"}`}>
+          <div className="h-[20px] w-[20px]">
+            <IconCompany />
           </div>
-          <div
-            className={`col-start-1 col-end-2 row-start-2 row-end-3 flex gap-[16px] ${
-              !blog && "text-[--secondary-text-transparent]"
-            }`}
-          >
-            <div className="h-[20px] w-[20px]">
-              <IconWebsite />
-            </div>
-            {blog ? (
-              <a href={blog} target="_blank" className="hover:underline">
-                {blog}
-              </a>
-            ) : (
-              <p>Not Available</p>
-            )}
-          </div>
-          <div
-            className={`col-start-2 col-end-3 row-start-2 row-end-3 flex gap-[16px] ${
-              !company && "text-[--secondary-text-transparent]"
-            }`}
-          >
-            <div className="h-[20px] w-[20px]">
-              <IconCompany />
-            </div>
-            {company ? (
-              <a
-                href={`https://github.com/${company.slice(1)}`}
-                target="_blank"
-              >
-                {company}
-              </a>
-            ) : (
-              <p>Not Available</p>
-            )}
-          </div>
+          {company ? (
+            <a href={`https://github.com/${company.slice(1)}`} target="_blank">
+              {company}
+            </a>
+          ) : (
+            <p>Not Available</p>
+          )}
         </div>
       </div>
     </section>

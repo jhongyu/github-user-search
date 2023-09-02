@@ -35,9 +35,9 @@ function App() {
   }, []);
 
   return (
-    <main>
+    <main className="mx-auto w-[100vw] max-w-[800px] px-[24px]">
       <section className="flex items-center justify-between">
-        <h1 className="text-[26px] font-bold text-[--primary-text]">
+        <h1 className="text-[length:26px] font-bold text-[color:--primary-text]">
           devfinder
         </h1>
         <Theme />

@@ -9,7 +9,7 @@ const Theme = () => {
     <>
       {isDark ? (
         <button
-          className="flex items-center gap-[16px] text-[--secondary-text] hover:text-[--primary-text]"
+          className="flex items-center gap-[16px] text-[length:13px] font-bold text-[color:--secondary-text] hover:text-[color:--primary-text]"
           onClick={() => setTheme("light")}
         >
           <span>LIGHT</span>
@@ -19,7 +19,7 @@ const Theme = () => {
         </button>
       ) : (
         <button
-          className="flex items-center gap-[16px] text-[--secondary-text] hover:text-[--primary-text]"
+          className="flex items-center gap-[16px] text-[length:13px] font-bold text-[color:--secondary-text] hover:text-[color:--primary-text]"
           onClick={() => setTheme("dark")}
         >
           <span>DARK</span>
