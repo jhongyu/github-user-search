@@ -22,7 +22,7 @@ const Search = ({ setUserInfo }: SearchProps) => {
   };
 
   return (
-    <div className="md:h[-70px] relative h-[60px] w-full">
+    <div className="relative h-[60px] w-full md:h-[70px]">
       <div className="pointer-events-none absolute left-[16px] top-1/2 z-10 translate-y-[-50%] text-[color:--primary] md:left-[32px]">
         <IconSearch />
       </div>

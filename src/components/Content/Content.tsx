@@ -72,7 +72,7 @@ const Content = ({
         The {userName}
       </p>
       <a
-        className="user-name-link inline-block text-[length:13px] text-[color:--primary] md:text-[length:16px]"
+        className="user-name-link inline-block text-[length:13px] text-[color:--primary] hover:underline md:text-[length:16px]"
         href={userLink}
         target="_blank"
       >
@@ -118,7 +118,11 @@ const Content = ({
             <IconTwitter />
           </div>
           {twitterUsername ? (
-            <a href={`https://twitter.com/${twitterUsername}`} target="_blank">
+            <a
+              href={`https://twitter.com/${twitterUsername}`}
+              target="_blank"
+              className="hover:underline"
+            >
               {twitterUsername}
             </a>
           ) : (
@@ -142,7 +146,11 @@ const Content = ({
             <IconCompany />
           </div>
           {company ? (
-            <a href={`https://github.com/${company.slice(1)}`} target="_blank">
+            <a
+              href={`https://github.com/${company.slice(1)}`}
+              target="_blank"
+              className="hover:underline"
+            >
               {company}
             </a>
           ) : (
