@@ -19,6 +19,7 @@ const Search = ({ setUserInfo }: SearchProps) => {
     } else if (typeof info === "string") {
       setShowErrorMessage(true);
     }
+    setUsername("");
   };
 
   return (
