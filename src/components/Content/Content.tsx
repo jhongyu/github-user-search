@@ -37,8 +37,6 @@ const Content = ({
   company,
 }: ContentProps) => {
   const slicedUserName = name.includes("The") ? name.slice(4) : name;
-  const userName =
-    slicedUserName.charAt(0).toUpperCase() + slicedUserName.slice(1);
   const date = new Date(createdTime);
   const time = `${date.getDate()} ${
     months[date.getMonth()]
@@ -69,7 +67,7 @@ const Content = ({
         />
       </div>
       <p className="user-name font-bold text-[color:--primary-text] md:text-[length:26px]">
-        The {userName}
+        {name.charAt(0).toUpperCase() + name.slice(1)}
       </p>
       <a
         className="user-name-link inline-block text-[length:13px] text-[color:--primary] hover:underline md:text-[length:16px]"
